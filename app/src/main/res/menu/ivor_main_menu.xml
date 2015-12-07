@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:osc="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/ivor_actionbar_search"
+        android:icon="@mipmap/ivor_actionbar_search"
+        android:title="搜索"
+        android:visible="true"
+        osc:showAsAction="always"/>
+
+</menu>

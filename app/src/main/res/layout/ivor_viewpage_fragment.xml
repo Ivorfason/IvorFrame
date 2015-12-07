@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- 导航标题栏 -->
+    <com.ivor.util.PagerSlidingTabStrip
+        android:id="@+id/ivor_pager_ts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fafafa"
+        app:allowWidthFull="true"
+        app:slidingBlock="@mipmap/ivor_sliding_block" >
+    </com.ivor.util.PagerSlidingTabStrip>
+
+    <View
+        android:id="@+id/ivor_pager_v"
+        android:layout_width="match_parent"
+        android:layout_below="@id/ivor_pager_ts"
+        android:layout_height="1px"
+        android:background="#C0C0C0" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/ivor_pager_vp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/ivor_pager_v">
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>

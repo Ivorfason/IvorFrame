@@ -1,0 +1,177 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f6f6f6" >
+
+    <RelativeLayout
+        android:id="@+id/ivor_drawer_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/ivor_drawer1_ll"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="15dip"
+                android:background="@mipmap/ivor_drawer_icon1"
+                android:contentDescription="@null" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:text="Action 1" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/ivor_drawer1_v"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/ivor_drawer1_ll"
+            android:background="#fafafa"/>
+
+        <LinearLayout
+            android:id="@+id/ivor_drawer2_ll"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/ivor_drawer1_v"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="15dip"
+                android:background="@mipmap/ivor_drawer_icon2"
+                android:contentDescription="@null" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:text="Action 2" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/ivor_drawer2_v"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/ivor_drawer2_ll"
+            android:background="#fafafa"/>
+
+        <LinearLayout
+            android:id="@+id/ivor_drawer3_ll"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/ivor_drawer2_v"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="15dip"
+                android:background="@mipmap/ivor_drawer_icon3"
+                android:contentDescription="@null" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:text="Action 3" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/ivor_drawer3_v"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/ivor_drawer3_ll"
+            android:background="#fafafa"/>
+
+        <LinearLayout
+            android:id="@+id/ivor_drawer4_ll"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/ivor_drawer3_v"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="15dip"
+                android:background="@mipmap/ivor_drawer_icon4"
+                android:contentDescription="@null" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:text="Action 4" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/ivor_drawer4_v"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/ivor_drawer4_ll"
+            android:background="#fafafa"/>
+
+        <LinearLayout
+            android:id="@+id/ivor_drawer5_ll"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/ivor_drawer4_v"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="15dip"
+                android:background="@mipmap/ivor_drawer_icon5"
+                android:contentDescription="@null" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:text="Action 5" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/ivor_drawer5_v"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/ivor_drawer5_ll"
+            android:background="#fafafa"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ivor_drawer6_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true" >
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="15dp"
+            android:background="@mipmap/ivor_drawer_icon6"
+            android:contentDescription="@null" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:text="Action 6" />
+    </LinearLayout>
+</RelativeLayout>

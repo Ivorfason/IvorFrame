@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <string-array name="ivor_pageA">
+        <item>NO.1</item>
+        <item>NO.2</item>
+        <item>NO.3</item>
+        <item>NO.4</item>
+    </string-array>
+
+</resources>

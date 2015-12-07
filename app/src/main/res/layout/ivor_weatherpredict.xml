@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/ivor_weathermes_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="中国天气查询"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"/>
+
+    <View
+        android:id="@+id/ivor_v3"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/ivor_weathermes_tv"
+        android:layout_marginTop="20dp"
+        android:background="#C0C0C0" />
+
+    <LinearLayout
+        android:id="@+id/ivor_weather_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:gravity="center">
+        <EditText
+            android:id="@+id/ivor_weather_et"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/ivor_weathersearch_btn"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="SEARCH"/>
+        <Button
+            android:id="@+id/ivor_weathereg_btn"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="Ivor"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/ivor_v4"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/ivor_weather_ll"
+        android:layout_marginTop="20dp"
+        android:background="#C0C0C0" />
+
+    <TextView
+        android:id="@+id/ivor_weather_tv"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:textColor="#000000"
+        android:background="@mipmap/ivor_phonenumber"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="30dp"/>
+
+</LinearLayout>

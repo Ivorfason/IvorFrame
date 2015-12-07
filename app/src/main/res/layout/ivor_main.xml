@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ivor_drawer_dl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ivor.ui.IvorMain" >
+
+    <LinearLayout
+        android:id="@+id/ivor_mytab_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@+id/ivor_mytab_fl"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dip" >
+                <com.ivor.tabhost.IvorFragmentTabHost
+                    android:id="@android:id/tabhost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dip" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#C0C0C0"/>
+            </RelativeLayout>
+
+            <!-- 快速操作按钮 -->
+            <ImageView
+                android:id="@+id/ivor_quickoption_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:src="@drawable/ivor_quickoption_selector" >
+            </ImageView>
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/ivor_drawer_fr"
+        android:name="com.ivor.fragment.DrawerFragment"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        tools:layout="@layout/ivor_drawer_fragment" />
+
+</android.support.v4.widget.DrawerLayout>

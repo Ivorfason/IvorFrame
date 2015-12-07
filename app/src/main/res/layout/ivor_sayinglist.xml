@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/ivor_weathermes_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="成语字典（Single Word）"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"/>
+
+    <View
+        android:id="@+id/ivor_v5"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/ivor_weathermes_tv"
+        android:layout_marginTop="20dp"
+        android:background="#C0C0C0" />
+
+    <LinearLayout
+        android:id="@+id/ivor_saying_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:gravity="center" >
+
+        <EditText
+            android:id="@+id/ivor_sayingpoint_et"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="请输入关键字" />
+
+        <Button
+            android:id="@+id/ivor_sayingsearch_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="SEARCH" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/ivor_v6"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/ivor_saying_ll"
+        android:layout_marginTop="20dp"
+        android:background="#C0C0C0" />
+
+    <ListView
+        android:id="@+id/ivor_sayinglist_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ivor_saying_ll"
+        android:divider="#f9b68b"
+        android:dividerHeight="1px" >
+    </ListView>
+        
+
+
+</LinearLayout>
