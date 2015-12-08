@@ -1,16 +1,16 @@
-# IvorFrame¡ª¡ªUI¿ò¼Ü
+# IvorFrameâ€”â€”UIæ¡†æž¶
 
-##¹¦ÄÜ¼ò½é
+##åŠŸèƒ½ç®€ä»‹
 * TabHost + DrawerLayout
 * Fragment + ViewPager
-* ÄÚÖÃÒ³°üº¬ÁËÒ»Ð©¼òµ¥ÍøÂçÇëÇó·½·¨ºÍÇëÇó¿âokhttp
-* µ÷ÓÃµÄAPIÓÐÊÖ»úºÅÂë¹éÊôµØ²éÑ¯£¬ÌìÆøÔ¤±¨£¬³ÉÓï×ÖµäµÈ
-* ×Ô¶¨ÒåDialogµÄÊµÏÖ
-* ×Ô¶¨ÒåPullLayoutÉÏÀ­
-* ËÑË÷Ò³ÃæµÄÂÖ²¥Í¼Æ¬ + ¶¨ÖÆËÑË÷
-* WebView
+* å†…ç½®é¡µåŒ…å«äº†ä¸€äº›ç®€å•ç½‘ç»œè¯·æ±‚æ–¹æ³•å’Œè¯·æ±‚åº“okhttp
+* è°ƒç”¨çš„APIæœ‰æ‰‹æœºå·ç å½’å±žåœ°æŸ¥è¯¢ï¼Œå¤©æ°”é¢„æŠ¥ï¼Œæˆè¯­å­—å…¸ç­‰
+* è‡ªå®šä¹‰Dialogçš„å®žçŽ°
+* è‡ªå®šä¹‰PullLayoutä¸Šæ‹‰é¡µé¢
+* æœç´¢é¡µé¢çš„è½®æ’­å›¾ç‰‡ + å®šåˆ¶æœç´¢
+* Activityé€šä¿¡ + WebView
 
-##ÊÖ»ú½ØÍ¼
+##æ‰‹æœºæˆªå›¾
 ![Ivor](/screenshots/tab1.png) 
 ![Ivor](/screenshots/tab2.png)
 ![Ivor](/screenshots/tab3.png)
@@ -22,4 +22,4 @@
 
 
 ##Ivor
-* 2015Äê12ÔÂ8ÈÕ 09:54:32
+* 2015å¹´12æœˆ8æ—¥ 19:11:33
