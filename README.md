@@ -7,6 +7,7 @@
 * 调用的API有手机号码归属地查询，天气预报，成语字典等
 * 自定义Dialog的实现
 * 自定义PullLayout上拉页面
+* Google官方SwipeRefresh下拉刷新
 * 搜索页面的轮播图片 + 定制搜索
 * Activity通信 + WebView
 
