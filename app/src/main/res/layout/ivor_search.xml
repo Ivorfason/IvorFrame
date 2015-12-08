@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3F51B5"
+        android:minHeight="?attr/actionBarSize" >
+        <ImageView
+            android:id="@+id/ivor_searchback_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ivor_back_logo"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="IvorFrame"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:layout_marginLeft="30dp"/>
+    </android.support.v7.widget.Toolbar>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="200dp">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/ivor_search_vp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="35dip"
+            android:layout_gravity="bottom"
+            android:gravity="center_horizontal"
+            android:background="#20000000"
+            android:orientation="vertical" >
+            <TextView
+                android:id="@+id/ivor_search_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="3dip"
+                android:layout_gravity="center_horizontal"
+                android:text="这是标题" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dip"
+                android:orientation="horizontal" >
+                <View
+                    android:id="@+id/ivor_searchdot1_v"
+                    android:layout_height="5dip"
+                    android:layout_width="5dip"
+                    android:layout_marginLeft="3dip"
+                    android:layout_marginRight="3dip"
+                    android:background="@drawable/ivor_searchdot_focus" />
+                <View
+                    android:id="@+id/ivor_searchdot2_v"
+                    android:layout_height="5dip"
+                    android:layout_width="5dip"
+                    android:layout_marginLeft="3dip"
+                    android:layout_marginRight="3dip"
+                    android:background="@drawable/ivor_searchdot_normal" />
+                <View
+                    android:id="@+id/ivor_searchdot3_v"
+                    android:layout_height="5dip"
+                    android:layout_width="5dip"
+                    android:layout_marginLeft="3dip"
+                    android:layout_marginRight="3dip"
+                    android:background="@drawable/ivor_searchdot_normal" />
+                <View
+                    android:id="@+id/ivor_searchdot4_v"
+                    android:layout_height="5dip"
+                    android:layout_width="5dip"
+                    android:layout_marginLeft="3dip"
+                    android:layout_marginRight="3dip"
+                    android:background="@drawable/ivor_searchdot_normal" />
+                <View
+                    android:id="@+id/ivor_searchdot5_v"
+                    android:layout_height="5dip"
+                    android:layout_width="5dip"
+                    android:layout_marginLeft="3dip"
+                    android:layout_marginRight="3dip"
+                    android:background="@drawable/ivor_searchdot_normal" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:src="@mipmap/ivor_baidu_logo"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp"
+        android:gravity="center">
+        <EditText
+            android:id="@+id/ivor_searchweb_et"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="Search Word"/>
+        <Button
+            android:id="@+id/ivor_searchweb_btn"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="SEARCH"
+            android:textSize="12sp"
+            android:background="#DBDBDB"/>
+    </LinearLayout>
+
+</LinearLayout>

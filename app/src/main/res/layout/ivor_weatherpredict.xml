@@ -1,68 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.ivor.custom.PullLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/ivor_weathermes_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="中国天气查询"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"/>
-
-    <View
-        android:id="@+id/ivor_v3"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_below="@id/ivor_weathermes_tv"
-        android:layout_marginTop="20dp"
-        android:background="#C0C0C0" />
+        android:layout_height="match_parent" >
 
-    <LinearLayout
-        android:id="@+id/ivor_weather_ll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:gravity="center">
-        <EditText
-            android:id="@+id/ivor_weather_et"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/ivor_weathersearch_btn"
-            android:layout_width="80dp"
+        <RelativeLayout
+            android:id="@+id/ivor_weathertop_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/ivor_weatherpull_iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ivor_weather_rain" />
+
+            <com.ivor.custom.EyeView
+                android:id="@+id/ivor_weatherpull_ev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/ivor_eye_selector" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ivor_eye" />
+            </com.ivor.custom.EyeView>
+
+            <LinearLayout
+                android:id="@+id/ivor_weatherpull_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="30dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@mipmap/ivor_weather_cloudy"
+                    android:gravity="center"
+                    android:text="10°~17°\r\nDay1"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:drawableTop="@mipmap/ivor_weather_drizzle"
+                    android:gravity="center"
+                    android:text="11°~18°\r\nDay2"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/ivor_weatherbottom_fl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ivor_weathertop_rl"
+            android:background="#F4F4F4" >
+
+            <LinearLayout
+                android:id="@+id/ivor_weathercontent_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:orientation="vertical" >
+
+                <View
+                    android:id="@+id/ivor_v3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="20dp"
+                    android:background="#C0C0C0" />
+
+                <LinearLayout
+                    android:id="@+id/ivor_weather_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:gravity="center">
+                    <EditText
+                        android:id="@+id/ivor_weather_et"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content" />
+                    <Button
+                        android:id="@+id/ivor_weathersearch_btn"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:text="SEARCH"/>
+                    <Button
+                        android:id="@+id/ivor_weathereg_btn"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:text="Ivor"/>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/ivor_v4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="20dp"
+                    android:background="#C0C0C0" />
+
+                <TextView
+                    android:id="@+id/ivor_weather_tv"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
+                    android:textColor="#000000"
+                    android:background="@mipmap/ivor_phonenumber"
+                    android:layout_marginTop="30dp"/>
+            </LinearLayout>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/ivor_weatherpull_tv"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="SEARCH"/>
-        <Button
-            android:id="@+id/ivor_weathereg_btn"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="Ivor"/>
-    </LinearLayout>
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:textColor="#000000"
+            android:text="中国天气查询" />
 
-    <View
-        android:id="@+id/ivor_v4"
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_below="@id/ivor_weather_ll"
-        android:layout_marginTop="20dp"
-        android:background="#C0C0C0" />
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/ivor_weather_tv"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center"
-        android:textColor="#000000"
-        android:background="@mipmap/ivor_phonenumber"
-        android:paddingLeft="20dp"
-        android:layout_marginTop="30dp"/>
-
-</LinearLayout>
+</com.ivor.custom.PullLayout>

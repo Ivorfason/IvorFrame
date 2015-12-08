@@ -6,5 +6,6 @@
     <color name="basered">#F27243</color>
     <color name="night_layout_bg_normal">#222222</color>
     <color name="night_layout_bg_pressed">#0d0e11</color>
+    <color name="transgrey">#33555555</color>
 
 </resources>

@@ -1,5 +1,6 @@
 package com.ivor.ui;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -147,8 +148,9 @@ public class IvorMain extends ActionBarActivity implements View.OnClickListener,
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.ivor_actionbar_search:
-                Toast.makeText(this.getApplicationContext(), "小帅哥你正在搜索！",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "欢迎小帅哥来到我的搜索！", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(IvorMain.this, IvorSearch.class);
+                startActivity(i);
                 break;
             default:
                 break;

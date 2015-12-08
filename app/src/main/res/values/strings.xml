@@ -9,4 +9,5 @@
 
     <string name="drawer_open">Open drawer</string>
     <string name="drawer_close">Close drawer</string>
+    <string name="title_activity_ivor_web_view">IvorWebView</string>
 </resources>

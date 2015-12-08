@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import com.alibaba.fastjson.JSON;
 import com.ivor.adapter.SayingListAdapter;
 import com.ivor.model.DataBean;
@@ -30,13 +33,15 @@ import java.util.List;
  * * @author  Ivor
  */
 
-public class DFragment extends Fragment implements View.OnClickListener {
+public class DFragment extends Fragment implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
 
 	private static final int kURLCONNECTION_GET_RESPONSE = 0x1;
 
 	private Button mSearchBtn;
 	private EditText mPointET;
 	private ListView mListLV;
+	private SwipeRefreshLayout mSwipeSRL;
+	private SayingListAdapter mSayingAdapter;
 
 	private String Sayingurl = "http://apis.baidu.com/netpopo/idiom/chengyu";
 
@@ -49,7 +54,7 @@ public class DFragment extends Fragment implements View.OnClickListener {
 					for (int i = 0; i < (mList.size()); i++) {
 						mList.get(i).setType(i % 2 == 0 ? 0 : 1);
 					}
-					final SayingListAdapter mSayingAdapter = new SayingListAdapter(getActivity(), mList);
+					mSayingAdapter = new SayingListAdapter(getActivity(), mList);
 					mListLV.setAdapter(mSayingAdapter);
 					mListLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 						@Override
@@ -79,12 +84,31 @@ public class DFragment extends Fragment implements View.OnClickListener {
 		this.mPointET = (EditText) v.findViewById(R.id.ivor_sayingpoint_et);
 		this.mSearchBtn = (Button) v.findViewById(R.id.ivor_sayingsearch_btn);
 		this.mListLV = (ListView) v.findViewById(R.id.ivor_sayinglist_lv);
+		this.mSwipeSRL = (SwipeRefreshLayout) v.findViewById(R.id.ivor_sayingswipe_srl);
 	}
 
 	private void initListener() {
 
 		mPointET.setOnClickListener(this);
 		mSearchBtn.setOnClickListener(this);
+		mSwipeSRL.setColorSchemeResources(
+				android.R.color.holo_blue_bright,
+				android.R.color.holo_green_light,
+				android.R.color.holo_orange_light,
+				android.R.color.holo_red_light);
+		mSwipeSRL.setOnRefreshListener(this);
+	}
+
+	@Override
+	public void onRefresh() {
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				mSwipeSRL.setRefreshing(false);
+				Toast.makeText(getActivity().getApplicationContext(), "刷新成功！", Toast.LENGTH_SHORT).show();
+			}
+		}, 3000);
 	}
 
 	@Override

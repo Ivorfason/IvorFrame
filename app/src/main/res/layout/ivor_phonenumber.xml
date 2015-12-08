@@ -9,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="手机号码归属地查询"
+        android:textColor="#000000"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"/>
 

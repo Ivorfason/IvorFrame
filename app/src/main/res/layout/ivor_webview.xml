@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3F51B5"
+        android:minHeight="?attr/actionBarSize" >
+        <ImageView
+            android:id="@+id/ivor_webback_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ivor_back_logo"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="IvorFrame"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:layout_marginLeft="30dp"/>
+    </android.support.v7.widget.Toolbar>
+
+    <WebView
+        android:id="@+id/ivor_searchweb_wv"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
+</LinearLayout> 

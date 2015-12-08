@@ -9,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="成语字典（Single Word）"
+        android:textColor="#000000"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"/>
 
@@ -52,14 +53,19 @@
         android:layout_marginTop="20dp"
         android:background="#C0C0C0" />
 
-    <ListView
-        android:id="@+id/ivor_sayinglist_lv"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/ivor_sayingswipe_srl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/ivor_saying_ll"
-        android:divider="#f9b68b"
-        android:dividerHeight="1px" >
-    </ListView>
+        android:layout_height="match_parent" >
+        <ListView
+            android:id="@+id/ivor_sayinglist_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ivor_saying_ll"
+            android:divider="#f9b68b"
+            android:dividerHeight="1px" >
+        </ListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
         
 
 
