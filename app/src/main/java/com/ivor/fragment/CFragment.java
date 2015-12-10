@@ -24,7 +24,7 @@ import java.net.HttpURLConnection;
 import java.net.*;
 
 /**
- * Description: 中国天气查询
+ * Description: 中国天气查询 (URLConnection + Handler)
  * * @author  Ivor
  */
 

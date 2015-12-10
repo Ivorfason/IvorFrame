@@ -165,13 +165,13 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginRight="15dp"
-            android:background="@mipmap/ivor_drawer_icon6"
+            android:background="@mipmap/ivor_amap_location"
             android:contentDescription="@null" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="16sp"
-            android:text="Action 6" />
+            android:text="Location" />
     </LinearLayout>
 </RelativeLayout>

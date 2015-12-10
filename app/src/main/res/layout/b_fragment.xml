@@ -2,13 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-        
-    <TextView 
-        android:id="@+id/aci_title_tv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="BFragment：生命周期" />
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <RatingBar
+        android:id="@+id/ivor_anews1_rb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:progressDrawable="@drawable/ivor_anew_rb"
+        android:minHeight="16dp"
+        android:maxHeight="16dp"
+        android:stepSize="1"/>
+    <RatingBar
+        android:id="@+id/ivor_anews2_rb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:progressDrawable="@drawable/ivor_anew_rb"
+        android:layout_marginTop="10dp"
+        android:minHeight="16dp"
+        android:maxHeight="16dp"
+        android:stepSize="1"/>
     
 </LinearLayout>

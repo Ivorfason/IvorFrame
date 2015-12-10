@@ -2,7 +2,6 @@ package com.ivor.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
@@ -14,23 +13,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.ivor.model.PhoneBean;
 import com.ivor.ui.R;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 /**
- * Description: 手机号码归属地查询
+ * Description: 手机号码归属地查询 (Google Volley)
  * * @author  Ivor
  */
 
 public class BFragment extends Fragment implements View.OnClickListener {
-
-	private static final int kURLCONNECTION_GET_RESPONSE = 0x1;
 
 	private Button mSearchBtn;
 	private Button mEGBtn;
@@ -38,20 +35,6 @@ public class BFragment extends Fragment implements View.OnClickListener {
 	private TextView mShowTV;
 
 	private String Numberurl = "http://api.avatardata.cn/MobilePlace/LookUp";
-
-	private Handler mHandler = new Handler(){
-		@Override
-		public void handleMessage(android.os.Message msg) {
-			switch (msg.what) {
-				case kURLCONNECTION_GET_RESPONSE:
-					mShowTV.setBackgroundResource(0);
-					mShowTV.setText((CharSequence) msg.obj);
-					break;
-				default:
-					break;
-			}
-		};
-	};
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -81,12 +64,7 @@ public class BFragment extends Fragment implements View.OnClickListener {
 				if(TextUtils.isEmpty(mPointET.getText().toString())) {
 					Toast.makeText(getActivity().getApplicationContext(), "请输入手机号码！", Toast.LENGTH_SHORT).show();
 				} else {
-					new Thread(new Runnable() {
-						@Override
-						public void run() {
-							phonehttpurlConnectionget();
-						}
-					}).start();
+					phonehttpurlConnectionget();
 				}
 				break;
 			case R.id.ivor_phoneeg_btn:
@@ -96,41 +74,25 @@ public class BFragment extends Fragment implements View.OnClickListener {
 	}
 
 	private void phonehttpurlConnectionget() {
-		BufferedReader reader = null;
-		String result = null;
-		StringBuffer sbf = new StringBuffer();
 		String Baiduurl = Numberurl + "?key=a6373ddade05403aa16751f82e3a38f7&mobileNumber=" + mPointET.getText().toString();
-		try {
-			URL url = new URL(Baiduurl);
-			// TODO
-			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			connection.setRequestMethod("GET");
-			connection.setRequestProperty("apikey", "6c36e1ebba98b1c157d34cfe81c5ef3e");
-			connection.connect();
-			// TODO
-			InputStream is = connection.getInputStream();
-			reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-			String strRead = null;
-			while ((strRead = reader.readLine()) != null) {
-				sbf.append(strRead);
-				sbf.append("\r\n");
+		RequestQueue mQueue = Volley.newRequestQueue(getActivity());
+		StringRequest stringRequest = new StringRequest(Request.Method.GET, Baiduurl,
+				new Response.Listener<String>() {
+					@Override
+					public void onResponse(String response) {
+						Log.d("TAG", response);
+						PhoneBean phoneBean = JSON.parseObject(response, PhoneBean.class);
+						mShowTV.setBackgroundResource(0);
+						mShowTV.setText(phoneBean.toString());
+					}
+				}, new Response.ErrorListener() {
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				Log.e("TAG", error.getMessage(), error);
 			}
-			reader.close();
-			result = sbf.toString();
-			Log.e("PhoneBean", result);
-			PhoneBean phoneBean = JSON.parseObject(result, PhoneBean.class);
-			Log.e("PhoneBean", phoneBean.toString());
+		});
 
-			Message msg = Message.obtain();
-			msg.what = kURLCONNECTION_GET_RESPONSE;
-			msg.obj = phoneBean.toString();
-			mHandler.sendMessage(msg);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-
+		mQueue.add(stringRequest);
 	}
 
 }

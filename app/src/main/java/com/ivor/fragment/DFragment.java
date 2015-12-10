@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Description: 成语字典
+ * Description: 成语字典 (OKhttp + SwipeRefresh)
  * * @author  Ivor
  */
 
