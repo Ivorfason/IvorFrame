@@ -3,7 +3,7 @@
 ##功能简介
 * TabHost + DrawerLayout
 * Fragment + ViewPager
-* 内置页包含了一些简单网络请求方法和请求库okhttp
+* 内置页包含了一些简单网络请求方法和请求库：Okhttp、Volley
 * 调用的API有手机号码归属地查询，天气预报，成语字典等
 * 自定义Dialog的实现
 * 自定义PullLayout上拉页面
