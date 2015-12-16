@@ -14,5 +14,6 @@
     <string name="battery_saving">低功耗模式</string>
     <string name="battery_saving_dec">仅使用高德网络定位，耗电量最低</string>
     <string name="battery_saving_info">低功耗模式</string>
+    <string name="title_activity_ivor_test">IvorTest</string>
 
 </resources>

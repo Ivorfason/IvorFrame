@@ -6,7 +6,7 @@
     <RelativeLayout
         android:id="@+id/ivor_drawer_rl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content" >
         <LinearLayout
             android:id="@+id/ivor_drawer1_ll"
             android:layout_width="match_parent"

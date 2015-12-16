@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;

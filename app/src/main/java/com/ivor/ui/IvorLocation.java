@@ -68,7 +68,6 @@ public class IvorLocation extends Activity implements OnCheckedChangeListener, O
 		mBackIV = (ImageView) findViewById(R.id.ivor_locationback_iv);
 		mShowSV = (ScrollView) findViewById(R.id.ivor_location_sv);
 
-
 	}
 
 	private void initListener() {

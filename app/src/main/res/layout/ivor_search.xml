@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
@@ -97,14 +98,14 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:src="@mipmap/ivor_baidu_logo"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_gravity="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:gravity="center">
         <EditText
             android:id="@+id/ivor_searchweb_et"

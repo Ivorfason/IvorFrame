@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ivor.custom.CustomDialog;
+import com.ivor.custom.QuickOptionDialog;
 import com.ivor.fragment.DrawerFragment;
 import com.ivor.tabhost.IvorMainTab;
 import com.ivor.tabhost.IvorFragmentTabHost;
@@ -31,10 +32,8 @@ public class IvorMain extends ActionBarActivity implements View.OnClickListener,
                         TabHost.OnTabChangeListener, View.OnTouchListener {
 
     public IvorFragmentTabHost mTabHost;
-    private CharSequence mTitle;
     private ImageView mAddBt;
     private DrawerFragment mDrawerFragment;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +45,6 @@ public class IvorMain extends ActionBarActivity implements View.OnClickListener,
     }
 
     private void initView() {
-        mTitle = getTitle();
         mAddBt = (ImageView) this.findViewById(R.id.ivor_quickoption_iv);
         mTabHost = (IvorFragmentTabHost) this.findViewById(android.R.id.tabhost);
         mTabHost.setup(this, getSupportFragmentManager(), R.id.ivor_mytab_fl);
@@ -61,7 +59,6 @@ public class IvorMain extends ActionBarActivity implements View.OnClickListener,
         mAddBt.setOnClickListener(this);
         mTabHost.setCurrentTab(0);
         mTabHost.setOnTabChangedListener(this);
-
     }
 
     private void initTabs() {
@@ -110,8 +107,10 @@ public class IvorMain extends ActionBarActivity implements View.OnClickListener,
         switch (id) {
             // 点击了快速操作按钮
             case R.id.ivor_quickoption_iv:
-                CustomDialog dialog=new CustomDialog(this, R.style.customDialog, R.layout.ivor_custom_dialog);
+                QuickOptionDialog dialog = new QuickOptionDialog(this, R.style.customDialog, R.layout.ivor_quickoption_dialog);
+                dialog.setCanceledOnTouchOutside(false);
                 dialog.show();
+                Toast.makeText(getApplicationContext(), "小帅哥你必须点我！", Toast.LENGTH_LONG).show();
                 break;
             default:
                 break;

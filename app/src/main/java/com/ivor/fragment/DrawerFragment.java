@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.ivor.ui.IvorLocation;
+import com.ivor.ui.IvorTest;
 import com.ivor.ui.R;
 
 /**
@@ -118,11 +119,12 @@ public class DrawerFragment extends Fragment implements OnClickListener {
                 messageShow();
                 break;
             case R.id.ivor_drawer5_ll:
-                messageShow();
+                Intent i1 = new Intent(getActivity(), IvorTest.class);
+                startActivity(i1);
                 break;
             case R.id.ivor_drawer6_ll:
-                Intent i = new Intent(getActivity(), IvorLocation.class);
-                startActivity(i);
+                Intent i2 = new Intent(getActivity(), IvorLocation.class);
+                startActivity(i2);
                 Toast.makeText(getActivity().getApplicationContext(), "欢迎小帅哥来到高德地图！", Toast.LENGTH_SHORT).show();
                 break;
         }

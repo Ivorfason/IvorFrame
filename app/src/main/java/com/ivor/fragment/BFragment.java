@@ -1,7 +1,6 @@
 package com.ivor.fragment;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
@@ -64,7 +63,7 @@ public class BFragment extends Fragment implements View.OnClickListener {
 				if(TextUtils.isEmpty(mPointET.getText().toString())) {
 					Toast.makeText(getActivity().getApplicationContext(), "请输入手机号码！", Toast.LENGTH_SHORT).show();
 				} else {
-					phonehttpurlConnectionget();
+					phoneVolley();
 				}
 				break;
 			case R.id.ivor_phoneeg_btn:
@@ -73,7 +72,8 @@ public class BFragment extends Fragment implements View.OnClickListener {
 		}
 	}
 
-	private void phonehttpurlConnectionget() {
+	private void phoneVolley() {
+
 		String Baiduurl = Numberurl + "?key=a6373ddade05403aa16751f82e3a38f7&mobileNumber=" + mPointET.getText().toString();
 		RequestQueue mQueue = Volley.newRequestQueue(getActivity());
 		StringRequest stringRequest = new StringRequest(Request.Method.GET, Baiduurl,
@@ -85,13 +85,14 @@ public class BFragment extends Fragment implements View.OnClickListener {
 						mShowTV.setBackgroundResource(0);
 						mShowTV.setText(phoneBean.toString());
 					}
-				}, new Response.ErrorListener() {
-			@Override
-			public void onErrorResponse(VolleyError error) {
-				Log.e("TAG", error.getMessage(), error);
-			}
-		});
-
+				},
+				new Response.ErrorListener() {
+					@Override
+					public void onErrorResponse(VolleyError error) {
+						Log.e("TAG", error.getMessage(), error);
+					}
+				});
+		// 将StringRequest添加到请求队列中
 		mQueue.add(stringRequest);
 	}
 

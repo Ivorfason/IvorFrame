@@ -18,7 +18,7 @@ import com.ivor.ui.R;
 
 public class CustomDialog extends Dialog implements View.OnClickListener {
 	
-        private int layoutRes;//布局文件
+        private int layoutRes;      //布局文件
         private Context context;
         private TextView mDialogPhone1TV;
         private TextView mDialogPhone2TV;
@@ -49,6 +49,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
             this.context = context;
             this.layoutRes=resLayout;
         }
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
