@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.alibaba.fastjson.JSON;
 import com.ivor.adapter.SayingListAdapter;
 import com.ivor.model.DataBean;
@@ -24,7 +23,6 @@ import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -47,23 +45,26 @@ public class DFragment extends Fragment implements View.OnClickListener, SwipeRe
 
 	private Handler mHandler = new Handler(){
 		@Override
-		public void handleMessage(android.os.Message msg) {
+		public void handleMessage(Message msg) {
 			switch (msg.what) {
 				case kURLCONNECTION_GET_RESPONSE:
 					List<DataBean> mList = (List) msg.obj;
-					for (int i = 0; i < (mList.size()); i++) {
-						mList.get(i).setType(i % 2 == 0 ? 0 : 1);
-					}
-					mSayingAdapter = new SayingListAdapter(getActivity(), mList);
-					mListLV.setAdapter(mSayingAdapter);
-					mListLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-						@Override
-						public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-							mSayingAdapter.setCurrentItem(position);
-							mSayingAdapter.notifyDataSetChanged();
+					if(mList == null) {
+						Toast.makeText(getActivity().getApplicationContext(), "小帅哥本次免费服务已到期！", Toast.LENGTH_LONG).show();
+					} else {
+						for (int i = 0; i < mList.size(); i++) {
+							mList.get(i).setType(i % 2 == 0 ? 0 : 1);
 						}
-					});
-
+						mSayingAdapter = new SayingListAdapter(getActivity(), mList);
+						mListLV.setAdapter(mSayingAdapter);
+						mListLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+							@Override
+							public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+								mSayingAdapter.setCurrentItem(position);
+								mSayingAdapter.notifyDataSetChanged();
+							}
+						});
+					}
 					break;
 				default:
 					break;
@@ -124,9 +125,7 @@ public class DFragment extends Fragment implements View.OnClickListener, SwipeRe
 		String Baiduurl = Sayingurl + "?keyword=" + mPointET.getText().toString() + "&appkey=1307ee261de8bbcf83830de89caae73f";
 		OkHttpClient mOkHttpClient = new OkHttpClient();
 		Request request = new Request.Builder()
-				.url(Baiduurl)
-				.addHeader("apikey","6c36e1ebba98b1c157d34cfe81c5ef3e")
-				.build();
+				.url(Baiduurl).addHeader("apikey","6c36e1ebba98b1c157d34cfe81c5ef3e").build();
 		Call call = mOkHttpClient.newCall(request);
 		call.enqueue(new Callback() {
 			@Override

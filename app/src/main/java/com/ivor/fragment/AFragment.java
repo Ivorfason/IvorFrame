@@ -24,9 +24,8 @@ public class AFragment extends BaseViewPagerFragment implements OnTabReselectLis
 	}
 
 	/**
-	 * 基类会根据不同的catalog展示相应的数据
+	 * 基类会根据不同的 catalog展示相应的数据
 	 */
-
 	private Bundle getBundle(int catalog) {
 		Bundle bundle = new Bundle();
 		bundle.putInt("Data", catalog);

@@ -16,7 +16,7 @@ import com.ivor.ui.R;
  * * @author  Ivor
  */
 
-public class CustomDialog extends Dialog implements View.OnClickListener {
+public class CallDialog extends Dialog implements View.OnClickListener {
 	
         private int layoutRes;      //布局文件
         private Context context;
@@ -24,7 +24,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
         private TextView mDialogPhone2TV;
         private TextView mDialogPhone3TV;
         
-        public CustomDialog(Context context) {
+        public CallDialog(Context context) {
             super(context);
             this.context = context;
         }
@@ -33,7 +33,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
          * @param context
          * @param resLayout
          */
-        public CustomDialog(Context context,int resLayout){
+        public CallDialog(Context context, int resLayout){
             super(context);
             this.context = context;
             this.layoutRes=resLayout;
@@ -44,7 +44,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
          * @param theme
          * @param resLayout
          */
-        public CustomDialog(Context context, int theme,int resLayout){
+        public CallDialog(Context context, int theme, int resLayout){
             super(context, theme);
             this.context = context;
             this.layoutRes=resLayout;

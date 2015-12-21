@@ -121,6 +121,7 @@ public class DrawerFragment extends Fragment implements OnClickListener {
             case R.id.ivor_drawer5_ll:
                 Intent i1 = new Intent(getActivity(), IvorTest.class);
                 startActivity(i1);
+                Toast.makeText(getActivity().getApplicationContext(), "未完待续！小帅哥请点我！", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.ivor_drawer6_ll:
                 Intent i2 = new Intent(getActivity(), IvorLocation.class);

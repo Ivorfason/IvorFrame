@@ -67,14 +67,12 @@ public class ArcMenu extends RelativeLayout {
         final ViewGroup controlLayout = (ViewGroup) findViewById(R.id.ivor_control_layout);
         controlLayout.setClickable(true);
         controlLayout.setOnTouchListener(new OnTouchListener() {
-
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     mHintView.startAnimation(createHintSwitchAnimation(mArcLayout.isExpanded()));
                     mArcLayout.switchState(true);
                 }
-
                 return false;
             }
         });

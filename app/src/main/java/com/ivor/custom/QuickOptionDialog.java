@@ -1,17 +1,13 @@
 package com.ivor.custom;
 
-
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import com.ivor.capricorn.ArcMenu;
 import com.ivor.ui.IvorAMap;
 import com.ivor.ui.R;
@@ -98,7 +94,7 @@ public class QuickOptionDialog extends Dialog {
                                 break;
                             case 3:
                                 dismiss();
-                                CustomDialog dialog1 = new CustomDialog(context, R.style.customDialog, R.layout.ivor_custom_dialog);
+                                CallDialog dialog1 = new CallDialog(context, R.style.customDialog, R.layout.ivor_call_dialog);
                                 dialog1.show();
                                 break;
                             case 4:
@@ -110,6 +106,6 @@ public class QuickOptionDialog extends Dialog {
                     }
                 });
             }
-    }
+        }
 
     }

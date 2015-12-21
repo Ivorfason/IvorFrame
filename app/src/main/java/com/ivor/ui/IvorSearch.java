@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Description: ViewPager轮播 + 定制搜索
@@ -119,6 +120,7 @@ public class IvorSearch extends Activity implements View.OnClickListener {
                 Intent i = new Intent(IvorSearch.this, IvorWebView.class);
                 i.putExtra("url", "https://www.baidu.com/s?wd=" + mSearchET.getText().toString());
                 startActivity(i);
+                Toast.makeText(getApplicationContext(), "小帅哥退出时请点击上方返回键！", Toast.LENGTH_LONG).show();
                 break;
         }
     }

@@ -30,5 +30,5 @@
     <declare-styleable name="RayLayout">
         <attr name="leftHolderWidth" format="dimension" />
     </declare-styleable>
-    
+
 </resources>

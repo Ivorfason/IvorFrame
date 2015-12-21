@@ -1,11 +1,14 @@
 package com.ivor.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.telephony.TelephonyManager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,7 +19,6 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ivor.custom.CustomDialog;
 import com.ivor.custom.QuickOptionDialog;
 import com.ivor.fragment.DrawerFragment;
 import com.ivor.tabhost.IvorMainTab;
@@ -34,14 +36,22 @@ public class IvorMain extends ActionBarActivity implements View.OnClickListener,
     public IvorFragmentTabHost mTabHost;
     private ImageView mAddBt;
     private DrawerFragment mDrawerFragment;
+    private long exitTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ivor_main);
+        initToast();
         initView();
         initListener();
         initTabs();
+    }
+
+    private void initToast() {
+        if(getPhoneNumber() != null) {
+            Toast.makeText(getApplicationContext(), "小帅哥你的手机号是：" + getPhoneNumber() + "\n哈哈哈哈哈！", Toast.LENGTH_LONG).show();
+        }
     }
 
     private void initView() {
@@ -88,6 +98,12 @@ public class IvorMain extends ActionBarActivity implements View.OnClickListener,
         }
     }
 
+    private String getPhoneNumber() {
+        TelephonyManager manager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+        String phoneNumber = manager.getLine1Number();
+        return phoneNumber;
+    }
+
     @Override
     public void onTabChanged(String tabId) {
         final int size = mTabHost.getTabWidget().getTabCount();
@@ -108,9 +124,10 @@ public class IvorMain extends ActionBarActivity implements View.OnClickListener,
             // 点击了快速操作按钮
             case R.id.ivor_quickoption_iv:
                 QuickOptionDialog dialog = new QuickOptionDialog(this, R.style.customDialog, R.layout.ivor_quickoption_dialog);
+                // 设置Dialog外部区域不可点击
                 dialog.setCanceledOnTouchOutside(false);
                 dialog.show();
-                Toast.makeText(getApplicationContext(), "小帅哥你必须点我！", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "小帅哥你必须点我！", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
@@ -156,4 +173,26 @@ public class IvorMain extends ActionBarActivity implements View.OnClickListener,
         }
         return super.onOptionsItemSelected(item);
     }
+
+    // 再按一次退出程序
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            if (event.getAction() == KeyEvent.ACTION_DOWN && event.getRepeatCount() == 0) {
+                this.exitApp();
+            }
+            return true;
+        }
+        return super.dispatchKeyEvent(event);
+    }
+
+    private void exitApp() {
+        if ((System.currentTimeMillis() - exitTime) > 2000) {
+            Toast.makeText(IvorMain.this, "小帅哥再按一次退出程序！", Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
+        } else {
+            finish();
+        }
+    }
+
 }

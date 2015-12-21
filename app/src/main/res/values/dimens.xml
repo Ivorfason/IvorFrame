@@ -5,9 +5,10 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <item name="menuStartDegrees" format="float" type="dimen">0.0</item>
-    <item name="menuFromDegrees" format="float" type="dimen">180.0</item>
-    <item name="menuEndDegrees" format="float" type="dimen">300.0</item>
-    <item name="menuStopDegrees" format="float" type="dimen">288.0</item>
-    <item name="menuToDegrees" format="float" type="dimen">360.0</item>
+    <item name="menuFromDegrees"  format="float" type="dimen">180.0</item>
+    <item name="menuEndDegrees"   format="float" type="dimen">300.0</item>
+    <item name="menuStopDegrees"  format="float" type="dimen">288.0</item>
+    <item name="menuToDegrees"    format="float" type="dimen">360.0</item>
     <dimen name="menuChildSize">30dp</dimen>
+
 </resources>

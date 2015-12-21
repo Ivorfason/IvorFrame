@@ -59,9 +59,4 @@
             android:textSize="18dip" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="1dip"
-        android:background="#E2E2E2" />
-
 </LinearLayout>
