@@ -14,7 +14,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import com.ivor.ui.IvorLocation;
 import com.ivor.ui.IvorTest;
 import com.ivor.ui.R;
@@ -32,6 +34,7 @@ public class DrawerFragment extends Fragment implements OnClickListener {
     private LinearLayout mActionLL4;
     private LinearLayout mActionLL5;
     private LinearLayout mActionLL6;
+    private TextView mUserTV;
 
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
@@ -60,6 +63,7 @@ public class DrawerFragment extends Fragment implements OnClickListener {
         this.mActionLL4 = (LinearLayout) v.findViewById(R.id.ivor_drawer4_ll);
         this.mActionLL5 = (LinearLayout) v.findViewById(R.id.ivor_drawer5_ll);
         this.mActionLL6 = (LinearLayout) v.findViewById(R.id.ivor_drawer6_ll);
+        this.mUserTV = (TextView) v.findViewById(R.id.ivor_draweruser_tv);
     }
 
     private void initListener() {
@@ -69,6 +73,10 @@ public class DrawerFragment extends Fragment implements OnClickListener {
         mActionLL4.setOnClickListener(this);
         mActionLL5.setOnClickListener(this);
         mActionLL6.setOnClickListener(this);
+    }
+
+    public void initArguments(String userName) {
+        mUserTV.setText("Hello Boy : " + userName);
     }
 
     // 定义DrawerLayout的开关状态

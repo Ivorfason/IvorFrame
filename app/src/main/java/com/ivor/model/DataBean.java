@@ -5,7 +5,7 @@ public class DataBean {
 	private String pronounce;
 	private String content;
 	private int type;
-	
+
 	public int getType() {
 		return type;
 	}

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -25,6 +26,8 @@ import com.ivor.tabhost.IvorMainTab;
 import com.ivor.tabhost.IvorFragmentTabHost;
 import com.ivor.tabhost.OnTabReselectListener;
 
+import cn.bmob.v3.Bmob;
+
 /**
  * Description: TabHostFragment + DrawerLayout
  * * @author  Ivor
@@ -36,25 +39,35 @@ public class IvorMain extends ActionBarActivity implements View.OnClickListener,
     public IvorFragmentTabHost mTabHost;
     private ImageView mAddBt;
     private DrawerFragment mDrawerFragment;
+    private FloatingActionButton mUserFAB;
     private long exitTime = 0;
+    private String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ivor_main);
+        initUser();
         initToast();
         initView();
         initListener();
         initTabs();
     }
 
+    private String initUser() {
+        Bundle bundle = this.getIntent().getExtras();
+        userName = bundle.getString("userName");
+        return userName;
+    }
+
     private void initToast() {
         if(getPhoneNumber() != null) {
-            Toast.makeText(getApplicationContext(), "小帅哥你的手机号是：" + getPhoneNumber() + "\n哈哈哈哈哈！", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "小帅哥你的手机号是：" + getPhoneNumber(), Toast.LENGTH_LONG).show();
         }
     }
 
     private void initView() {
+        mUserFAB = (FloatingActionButton) this.findViewById(R.id.ivor_user_fab);
         mAddBt = (ImageView) this.findViewById(R.id.ivor_quickoption_iv);
         mTabHost = (IvorFragmentTabHost) this.findViewById(android.R.id.tabhost);
         mTabHost.setup(this, getSupportFragmentManager(), R.id.ivor_mytab_fl);
@@ -63,9 +76,13 @@ public class IvorMain extends ActionBarActivity implements View.OnClickListener,
         }
         mDrawerFragment = (DrawerFragment) getSupportFragmentManager().findFragmentById(R.id.ivor_drawer_fr);
         mDrawerFragment.setUp((DrawerLayout) findViewById(R.id.ivor_drawer_dl));
+        // 传递参数
+        mDrawerFragment.initArguments(userName);
     }
 
+
     private void initListener() {
+        mUserFAB.setOnClickListener(this);
         mAddBt.setOnClickListener(this);
         mTabHost.setCurrentTab(0);
         mTabHost.setOnTabChangedListener(this);
@@ -129,6 +146,8 @@ public class IvorMain extends ActionBarActivity implements View.OnClickListener,
                 dialog.show();
                 Toast.makeText(getApplicationContext(), "小帅哥你必须点我！", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.ivor_user_fab:
+                Toast.makeText(getApplicationContext(), "欢迎小帅哥：" + userName,Toast.LENGTH_SHORT).show();
             default:
                 break;
         }

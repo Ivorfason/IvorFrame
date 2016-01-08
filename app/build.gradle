@@ -24,5 +24,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
     compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'cn.bmob.android:bmob-sdk:3.4.5'
     compile project(':alertdialoglibrary')
 }

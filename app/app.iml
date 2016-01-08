@@ -96,11 +96,14 @@
     <orderEntry type="library" exported="" name="volly-1.0.11" level="project" />
     <orderEntry type="library" exported="" name="nineoldandroids-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="fastjson-1.2.5" level="project" />
+    <orderEntry type="library" exported="" name="Bmob_Push_V0.6beta_20150408" level="project" />
     <orderEntry type="library" exported="" name="AMap_Services_V2.7.0_20151125" level="project" />
     <orderEntry type="library" exported="" name="design-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="support-v4-23.1.1" level="project" />
+    <orderEntry type="library" exported="" name="BmobSDK_V3.4.5_1111" level="project" />
     <orderEntry type="library" exported="" name="okhttp-2.1.0" level="project" />
+    <orderEntry type="library" exported="" name="bmob-sdk-3.4.5" level="project" />
     <orderEntry type="library" exported="" name="okio-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-23.1.1" level="project" />
