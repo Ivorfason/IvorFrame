@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.ivor.model.Person;
@@ -24,6 +26,7 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
 
     private static String TAG = "bmob";
 
+    private LinearLayout mLoginLL;
     private EditText mUserET;
     private EditText mPassWordET;
     private Button mRegisterBtn;
@@ -40,6 +43,8 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
     }
 
     private void initView() {
+        this.mLoginLL = (LinearLayout) findViewById(R.id.bmob_login_ll);
+        this.setAlphaAnimation(mLoginLL);
         this.mUserET = (EditText) findViewById(R.id.bmob_user_et);
         this.mPassWordET = (EditText) findViewById(R.id.bmob_password_et);
         this.mRegisterBtn = (Button) findViewById(R.id.bmob_register_btn);
@@ -61,6 +66,12 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
                 queryData();
                 break;
         }
+    }
+
+    private void setAlphaAnimation(View v) {
+        AlphaAnimation aa = new AlphaAnimation(0, 1);
+        aa.setDuration(3000);
+        v.startAnimation(aa);
     }
 
     private void toast(String msg){
@@ -115,6 +126,7 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
                         mUserET.setText("");
                         mPassWordET.setText("");
                     }
+
                     @Override
                     public void onFailure(int code, String msg) {
                         // TODO Auto-generated method stub
@@ -127,35 +139,40 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
 
     // 登录查询
     private void queryData() {
-        BmobQuery<Person> query = new BmobQuery<Person>();
-        query.addWhereEqualTo("user", mUserET.getText().toString());
-        query.findObjects(this, new FindListener<Person>() {
-            @Override
-            public void onSuccess(List<Person> object) {
-                // TODO Auto-generated method stub
-                for (Person p : object) {
-                    //获得Password的信息
-                    if(p.getPassword().equals(mPassWordET.getText().toString())) {
-                        toast("登录成功");
-                        Intent i = new Intent(IvorLogin.this, IvorMain.class);
-                        i.putExtra("userName", p.getUser());
-                        startActivity(i);
-                        IvorLogin.this.finish();
-                    } else {
-                        toast("登录失败");
+        if(mUserET.equals("") || mPassWordET.equals("")) {
+            toast("请小帅哥输入用户名和密码！");
+        } else {
+            BmobQuery<Person> query = new BmobQuery<Person>();
+            query.addWhereEqualTo("user", mUserET.getText().toString());
+            query.findObjects(this, new FindListener<Person>() {
+                @Override
+                public void onSuccess(List<Person> object) {
+                    // TODO Auto-generated method stub
+                    for (Person p : object) {
+                        //获得Password的信息
+                        if (p.getPassword().equals(mPassWordET.getText().toString())) {
+                            toast("登录成功");
+                            Intent i = new Intent(IvorLogin.this, IvorMain.class);
+                            i.putExtra("userName", p.getUser());
+                            startActivity(i);
+                            IvorLogin.this.finish();
+                        } else {
+                            toast("登录失败");
+                        }
+                        //获得数据的objectId信息
+                        p.getObjectId();
+                        //获得createdAt数据创建时间（注意是：createdAt，不是createAt）
+                        p.getCreatedAt();
                     }
-                    //获得数据的objectId信息
-                    p.getObjectId();
-                    //获得createdAt数据创建时间（注意是：createdAt，不是createAt）
-                    p.getCreatedAt();
                 }
-            }
-            @Override
-            public void onError(int code, String msg) {
-                // TODO Auto-generated method stub
-                toast("登录失败："+ msg);
-            }
-        });
+
+                @Override
+                public void onError(int code, String msg) {
+                    // TODO Auto-generated method stub
+                    toast("登录失败：" + msg);
+                }
+            });
+        }
     }
 
     // 修改更新
