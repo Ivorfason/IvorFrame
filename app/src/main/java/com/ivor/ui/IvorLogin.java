@@ -91,7 +91,7 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
                 if (object.size() != 0) {
                     toast("该用户已存在！");
                 } else {
-                    if(mUserET.equals("") || mPassWordET.equals("")) {
+                    if(mUserET.getText().toString().equals("") || mPassWordET.getText().toString().equals("")) {
                         toast("请不要输入空的用户名或密码！");
                     } else {
                         p.setUser(mUserET.getText().toString());
@@ -116,7 +116,7 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
             @Override
             public void onError(int code, String msg) {
                 // TODO Auto-generated method stub
-                if(mUserET.equals("") || mPassWordET.equals("")) {
+                if(mUserET.getText().toString().equals("") || mPassWordET.getText().toString().equals("")) {
                     toast("请不要输入空的用户名或密码！");
                 } else {
                     p.setUser(mUserET.getText().toString());
@@ -142,7 +142,7 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
 
     // 登录查询
     private void queryData() {
-        if(mUserET.equals("") || mPassWordET.equals("")) {
+        if(mUserET.getText().toString().equals("") || mPassWordET.getText().toString().equals("")) {
             toast("请小帅哥输入用户名和密码！");
         } else {
             BmobQuery<Person> query = new BmobQuery<Person>();
