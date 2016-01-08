@@ -116,23 +116,26 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
             @Override
             public void onError(int code, String msg) {
                 // TODO Auto-generated method stub
-                p.setUser(mUserET.getText().toString());
-                p.setPassword(mPassWordET.getText().toString());
-                p.save(getApplicationContext(), new SaveListener() {
-                    @Override
-                    public void onSuccess() {
-                        // TODO Auto-generated method stub
-                        toast("注册成功！");
-                        mUserET.setText("");
-                        mPassWordET.setText("");
-                    }
-
-                    @Override
-                    public void onFailure(int code, String msg) {
-                        // TODO Auto-generated method stub
-                        toast("注册失败！" + msg);
-                    }
-                });
+                if(mUserET.equals("") || mPassWordET.equals("")) {
+                    toast("请不要输入空的用户名或密码！");
+                } else {
+                    p.setUser(mUserET.getText().toString());
+                    p.setPassword(mPassWordET.getText().toString());
+                    p.save(getApplicationContext(), new SaveListener() {
+                        @Override
+                        public void onSuccess() {
+                            // TODO Auto-generated method stub
+                            toast("注册成功！");
+                            mUserET.setText("");
+                            mPassWordET.setText("");
+                        }
+                        @Override
+                        public void onFailure(int code, String msg) {
+                            // TODO Auto-generated method stub
+                            toast("注册失败！" + msg);
+                        }
+                    });
+                }
             }
         });
     }
@@ -165,7 +168,6 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
                         p.getCreatedAt();
                     }
                 }
-
                 @Override
                 public void onError(int code, String msg) {
                     // TODO Auto-generated method stub

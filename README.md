@@ -9,13 +9,16 @@
 * 自定义PullLayout上拉页面
 * Google官方SwipeRefresh下拉刷新
 * 搜索页面的轮播图片 + 定制搜索
-* Activity通信 + WebView
+* Activity通信 + Fragment通信 + WebView
 * 基于高德地图的定位（定位信息 + 地图）
 * RatingBar的首页展示
 * 界面更新，添加了首页Dialog的简单动画和界面效果
 * 添加Library实现AlertDialog
+* 结合Bmob添加了登录与注册功能，并实现了简单动画功能
+* 使用FloatActionButton显示用户ID
 
 ##手机截图
+![Ivor](/screenshots/login.png)
 ![Ivor](/screenshots/tab1.png) 
 ![Ivor](/screenshots/tab2.png)
 ![Ivor](/screenshots/tab3.png)
@@ -27,4 +30,4 @@
 
 
 ##Ivor
-* 2015年12月21日 11:46:51
+* 2016年1月8日 15:38:51

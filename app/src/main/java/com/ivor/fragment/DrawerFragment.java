@@ -76,7 +76,7 @@ public class DrawerFragment extends Fragment implements OnClickListener {
     }
 
     public void initArguments(String userName) {
-        mUserTV.setText("Hello Boy : " + userName);
+        mUserTV.setText("*  Hello Boy : " + userName + "  *");
     }
 
     // 定义DrawerLayout的开关状态
