@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/ivor_bg"
-    tools:context="ivor.hellobmob.MainActivity">
+    android:background="@mipmap/ivor_bg" >
 
     <LinearLayout
         android:id="@+id/bmob_login_ll"
@@ -76,4 +74,15 @@
                 android:text="Login"/>
         </LinearLayout>
     </LinearLayout>
+    <ProgressBar
+        android:id="@+id/bmob_login_pb"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:max="100"
+        android:progress="0"
+        android:visibility="invisible"
+        android:layout_below="@+id/bmob_login_ll" />
 </RelativeLayout>

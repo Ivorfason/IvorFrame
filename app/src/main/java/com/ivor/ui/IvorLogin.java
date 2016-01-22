@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.ivor.model.Person;
@@ -24,13 +26,14 @@ import cn.bmob.v3.listener.UpdateListener;
 
 public class IvorLogin extends AppCompatActivity implements View.OnClickListener {
 
-    private static String TAG = "bmob";
+    private static String TAG = "Bmob";
 
     private LinearLayout mLoginLL;
     private EditText mUserET;
     private EditText mPassWordET;
     private Button mRegisterBtn;
     private Button mLoginBtn;
+    private ProgressBar mLoadingPB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,7 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
         this.mPassWordET = (EditText) findViewById(R.id.bmob_password_et);
         this.mRegisterBtn = (Button) findViewById(R.id.bmob_register_btn);
         this.mLoginBtn = (Button) findViewById(R.id.bmob_login_btn);
+        this.mLoadingPB = (ProgressBar) findViewById(R.id.bmob_login_pb);
     }
 
     private void initListener() {
@@ -63,6 +67,7 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
                 addData();
                 break;
             case R.id.bmob_login_btn:
+                mLoadingPB.setVisibility(View.VISIBLE);
                 queryData();
                 break;
         }
@@ -70,7 +75,7 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
 
     private void setAlphaAnimation(View v) {
         AlphaAnimation aa = new AlphaAnimation(0, 1);
-        aa.setDuration(3000);
+        aa.setDuration(5000);
         v.startAnimation(aa);
     }
 
@@ -87,7 +92,6 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
         query.findObjects(this, new FindListener<Person>() {
             @Override
             public void onSuccess(List<Person> object) {
-                // TODO Auto-generated method stub
                 if (object.size() != 0) {
                     toast("该用户已存在！");
                 } else {
@@ -99,14 +103,12 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
                         p.save(getApplicationContext(), new SaveListener() {
                             @Override
                             public void onSuccess() {
-                                // TODO Auto-generated method stub
                                 toast("注册成功！");
                                 mUserET.setText("");
                                 mPassWordET.setText("");
                             }
                             @Override
                             public void onFailure(int code, String msg) {
-                                // TODO Auto-generated method stub
                                 toast("注册失败！" + msg);
                             }
                         });
@@ -115,7 +117,6 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
             }
             @Override
             public void onError(int code, String msg) {
-                // TODO Auto-generated method stub
                 if(mUserET.getText().toString().equals("") || mPassWordET.getText().toString().equals("")) {
                     toast("请不要输入空的用户名或密码！");
                 } else {
@@ -124,14 +125,12 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
                     p.save(getApplicationContext(), new SaveListener() {
                         @Override
                         public void onSuccess() {
-                            // TODO Auto-generated method stub
                             toast("注册成功！");
                             mUserET.setText("");
                             mPassWordET.setText("");
                         }
                         @Override
                         public void onFailure(int code, String msg) {
-                            // TODO Auto-generated method stub
                             toast("注册失败！" + msg);
                         }
                     });
@@ -150,7 +149,7 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
             query.findObjects(this, new FindListener<Person>() {
                 @Override
                 public void onSuccess(List<Person> object) {
-                    // TODO Auto-generated method stub
+                    mLoadingPB.setVisibility(View.GONE);
                     for (Person p : object) {
                         //获得Password的信息
                         if (p.getPassword().equals(mPassWordET.getText().toString())) {
@@ -170,7 +169,7 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
                 }
                 @Override
                 public void onError(int code, String msg) {
-                    // TODO Auto-generated method stub
+                    mLoadingPB.setVisibility(View.GONE);
                     toast("登录失败：" + msg);
                 }
             });
@@ -184,12 +183,10 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
         p.update(this, objectId, new UpdateListener() {
             @Override
             public void onSuccess() {
-                // TODO Auto-generated method stub
                 toast("更新成功：" + p.getUpdatedAt());
             }
             @Override
             public void onFailure(int code, String msg) {
-                // TODO Auto-generated method stub
                 toast("更新失败：" + msg);
             }
         });
@@ -202,12 +199,10 @@ public class IvorLogin extends AppCompatActivity implements View.OnClickListener
         p.delete(this, new DeleteListener() {
             @Override
             public void onSuccess() {
-                // TODO Auto-generated method stub
                 toast("删除成功");
             }
             @Override
             public void onFailure(int code, String msg) {
-                // TODO Auto-generated method stub
                 toast("删除失败：" + msg);
             }
         });
